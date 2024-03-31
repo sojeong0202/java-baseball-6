@@ -1,19 +1,15 @@
 package baseball;
 
 
+import baseball.model.Computer;
 import baseball.model.Player;
-import baseball.util.RandomNumber;
-import java.util.List;
+import baseball.service.BaseballGame;
+import baseball.service.CountResult;
+
 
 public class Application {
     public static void main(String[] args) {
-        RandomNumber randomNumber = new RandomNumber();
-        List<Integer> numbers = randomNumber.generateRandomNumber();
-
-        Player player = new Player();
-        player.inputPlayerNumber();
-
-
+        new BaseballGame(new Computer(), new Player(), new CountResult()).playGame();
     }
 }
 
