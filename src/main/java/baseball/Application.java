@@ -12,4 +12,3 @@ public class Application {
         new BaseballGame(new Computer(), new Player(), new CountResult()).playGame();
     }
 }
-

@@ -8,14 +8,15 @@ import java.util.List;
 
 public class Player {
 
-    public void inputPlayerNumber() {
-        OutputView.printStartMessage();
+    public List<Integer> inputPlayerNumber() {
         OutputView.printInputMessage();
         String input = Console.readLine();
 
         Validator.validateInputNumber(input);
 
         List<Integer> numbers = convertStringToIntegers(input);
+
+        return numbers;
     }
 
     private List<Integer> convertStringToIntegers(final String input) {
