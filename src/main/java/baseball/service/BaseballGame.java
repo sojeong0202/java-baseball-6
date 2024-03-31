@@ -1,14 +1,22 @@
 package baseball.service;
 
+import static baseball.util.ErrorMessage.RESTART_INPUT_WRONG_NUMBER;
+import static baseball.util.ExceptionHandler.Exception;
+import static baseball.view.OutputView.printEndGameMessage;
 import static baseball.view.OutputView.printRestartGameMessage;
+import static baseball.view.OutputView.printResultMessage;
+import static baseball.view.OutputView.printStartMessage;
 
 import baseball.model.Computer;
 import baseball.model.Player;
-import baseball.view.OutputView;
 import camp.nextstep.edu.missionutils.Console;
 import java.util.List;
 
 public class BaseballGame {
+
+    private static final int RESTART_YES = 1;
+    private static final int RESTART_NO = 2;
+
     private final Computer computer;
     private final Player player;
     private final CountResult countResult;
@@ -22,7 +30,7 @@ public class BaseballGame {
     public void playGame() {
 
         do {
-            OutputView.printStartMessage();
+            printStartMessage();
             processGame();
         } while (askRestartGame());
     }
@@ -36,20 +44,18 @@ public class BaseballGame {
             int countStrikes = countResult.countStrikes(playerNumber, computerNumber);
             int countBalls = countResult.countBalls(playerNumber, computerNumber);
 
-            OutputView.printResultMessage(countStrikes, countBalls);
-
+            printResultMessage(countStrikes, countBalls);
         } while (!countResult.judgementEndGame(playerNumber, computerNumber));
 
-        OutputView.printEndGameMessage();
+        printEndGameMessage();
     }
 
     public boolean askRestartGame() {
         printRestartGameMessage();
         int answerNumber = Integer.parseInt(Console.readLine());
-
-        if (answerNumber != 1 && answerNumber != 2) {
-            throw new IllegalArgumentException("입력값이 올바르지 않습니다.");
+        if (answerNumber != RESTART_YES && answerNumber != RESTART_NO) {
+            Exception(RESTART_INPUT_WRONG_NUMBER);
         }
-        return answerNumber == 1;
+        return answerNumber == RESTART_YES;
     }
 }
