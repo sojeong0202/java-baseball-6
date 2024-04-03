@@ -28,7 +28,6 @@ public class BaseballGame {
     }
 
     public void playGame() {
-
         do {
             printStartMessage();
             processGame();
