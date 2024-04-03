@@ -3,7 +3,7 @@ package baseball;
 
 import baseball.model.Computer;
 import baseball.model.Player;
-import baseball.service.BaseballGame;
+import baseball.controller.BaseballGame;
 import baseball.service.CountResult;
 
 

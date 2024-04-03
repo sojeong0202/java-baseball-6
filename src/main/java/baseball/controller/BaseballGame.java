@@ -1,15 +1,16 @@
-package baseball.service;
+package baseball.controller;
 
 import static baseball.util.ErrorMessage.RESTART_INPUT_WRONG_NUMBER;
 import static baseball.util.ExceptionHandler.Exception;
+import static baseball.view.InputView.inputPlayerNumber;
+import static baseball.view.InputView.inputRestartNumber;
 import static baseball.view.OutputView.printEndGameMessage;
-import static baseball.view.OutputView.printRestartGameMessage;
 import static baseball.view.OutputView.printResultMessage;
 import static baseball.view.OutputView.printStartMessage;
 
 import baseball.model.Computer;
 import baseball.model.Player;
-import camp.nextstep.edu.missionutils.Console;
+import baseball.service.CountResult;
 import java.util.List;
 
 public class BaseballGame {
@@ -38,7 +39,7 @@ public class BaseballGame {
         List<Integer> computerNumber = computer.generateRandomNumber();
         List<Integer> playerNumber;
         do {
-            playerNumber = player.inputPlayerNumber();
+            playerNumber = player.filteredPlayerNumber(inputPlayerNumber());
 
             int countStrikes = countResult.countStrikes(playerNumber, computerNumber);
             int countBalls = countResult.countBalls(playerNumber, computerNumber);
@@ -50,8 +51,7 @@ public class BaseballGame {
     }
 
     public boolean askRestartGame() {
-        printRestartGameMessage();
-        int answerNumber = Integer.parseInt(Console.readLine());
+        int answerNumber = Integer.parseInt(inputRestartNumber());
         if (answerNumber != RESTART_YES && answerNumber != RESTART_NO) {
             Exception(RESTART_INPUT_WRONG_NUMBER);
         }

@@ -11,19 +11,15 @@ public class Computer {
     private static final int MIN_RANDOM_NUMBER = 1;
     private static final int MAX_RANDOM_NUMBER = 9;
 
-    // 컴퓨터 랜덤 숫자 생성
     public List<Integer> generateRandomNumber() {
         List<Integer> computer = new ArrayList<>();
 
         while (computer.size() < RANDOM_NUMBER_SIZE) {
             int randomNumber = Randoms.pickNumberInRange(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-
             if (!computer.contains(randomNumber)) {
                 computer.add(randomNumber);
             }
-
         }
-
         return computer;
     }
 }

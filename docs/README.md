@@ -1,11 +1,13 @@
 ## 🚧 수정 사항과 공부할 내용 리스트 정리
 - [x] 복잡한 if 문의 조건식과 반복되는 if문 메소드로 분리 + 주석 제거   
---> 조건문 분해(Decompose Conditional),  https://velog.io/@hi_potato/Refactoring-Simplifying-Conditional-Expressions
+--> 조건문 분해(Decompose Conditional),  
+참고: https://velog.io/@hi_potato/Refactoring-Simplifying-Conditional-Expressions
 ~~--> 함수형 인터페이스, 동작 매개 변수화 -> 람다식 사용~~
 - [ ] 매개변수에 의한 예외 말고 또다른 예외 찾기
-- [ ] MVC 개념 명확히 확립 후, 패턴에 좀 더 걸맞은 역할 분담
-  - [ ] View에서 입력받은 값을 Model로 넘겨줄 중간 계층 필요
-  - [ ] 입출력 책임지고 있는 Model의 책임 범위 수정
+- [x] MVC 개념 명확히 확립 후, 패턴에 좀 더 걸맞은 역할 분담
+  - [x] View에서 입력받은 값을 Model로 넘겨줄 중간 계층 필요
+  - [x] 입출력 책임지고 있는 Model의 책임 범위 수정  
+--> 유효성 검사와 입력 데이터 변환은 비즈니스 로직에 가까운 작업으로 보고 Model에서 처리하는 것으로 결정
 - [ ] 코드 컨벤션 지켰는지 한 번 더 확인
   - [x] 쓸데없는 밑줄 제거
   - [ ] EOL 공부
